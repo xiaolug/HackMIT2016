@@ -12,6 +12,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.content.Intent;
+import android.widget.Button;
+import android.view.View;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -22,15 +25,32 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        Button newpaths =(Button)findViewById(R.id.button);
+        Button mypaths =(Button)findViewById(R.id.button2);
+        Button games =(Button)findViewById(R.id.button3);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+        newpaths.setOnClickListener(
+                new Button.OnClickListener() {
+                    public void onClick(View v) {
+                        Intent i=new Intent(MainActivity.this, CreateNew.class);
+                        startActivity(i);
+                    }
+                }
+        );
+        mypaths.setOnClickListener(new Button.OnClickListener() {
+            public void onClick(View v) {
+                Intent i=new Intent(MainActivity.this, MyPaths.class);
+                startActivity(i);
             }
         });
+        games.setOnClickListener(new Button.OnClickListener() {
+            public void onClick(View v) {
+                Intent i=new Intent(MainActivity.this, Games.class);
+                startActivity(i);
+            }
+        });
+
+
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -82,11 +102,20 @@ public class MainActivity extends AppCompatActivity
 
         if (id == R.id.nav_camera) {
             // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+        } else if (id == R.id.nav_newpath) {
 
-        } else if (id == R.id.nav_slideshow) {
+            Intent i=new Intent(this,CreateNew.class);
+            startActivity(i);
 
-        } else if (id == R.id.nav_manage) {
+        } else if (id == R.id.nav_mypaths) {
+
+            Intent i=new Intent(this, MyPaths.class);
+            startActivity(i);
+
+        } else if (id == R.id.nav_games) {
+
+            Intent i=new Intent(this, Games.class);
+            startActivity(i);
 
         } else if (id == R.id.nav_share) {
 
