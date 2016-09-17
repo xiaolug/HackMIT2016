@@ -13,6 +13,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 
 /**
  * Created by xiaoluguo on 9/17/16.
@@ -24,6 +25,27 @@ public class CreateNew extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.new_path);
+
+        Button choose_template=(Button) findViewById(R.id.button4);
+        Button upload_path=(Button) findViewById(R.id.button5);
+
+        choose_template.setOnClickListener(
+                new Button.OnClickListener() {
+                    public void onClick(View v) {
+                        Intent i=new Intent(CreateNew.this, Choose_Template.class);
+                        startActivity(i);
+                    }
+                }
+        );
+        upload_path.setOnClickListener(
+                new Button.OnClickListener() {
+                    public void onClick(View v) {
+                        Intent i=new Intent(CreateNew.this, Custom_Path.class);
+                        startActivity(i);
+                    }
+                }
+        );
+
 //        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 //        setSupportActionBar(toolbar);
 //
