@@ -13,13 +13,16 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
 
 /**
  * Created by xiaoluguo on 9/17/16.
  */
 public class Games extends AppCompatActivity{
         //implements NavigationView.OnNavigationItemSelectedListener {
-
+    int num=1;
+    int resID;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,6 +30,32 @@ public class Games extends AppCompatActivity{
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        Button right=(Button) findViewById(R.id.button6);
+        Button left=(Button) findViewById(R.id.button7);
+
+        final ImageView pic= (ImageView) findViewById(R.id.imageView2);
+
+        right.setOnClickListener(
+                new Button.OnClickListener() {
+                    public void onClick(View v) {
+                        num=(num+1)%11;
+                        String mDrawableName="l"+num;
+                        resID=getResources().getIdentifier(mDrawableName, "drawable", getPackageName());
+                        System.out.print("2E STRIKES AGAIN " +resID);
+                        pic.setImageResource(resID);
+                    }
+                }
+        );
+        left.setOnClickListener(
+                new Button.OnClickListener() {
+                    public void onClick(View v) {
+                        num=(num-1)%11;
+                        String mDrawableName="l"+num+".jpg";
+                        resID=getResources().getIdentifier(mDrawableName, "drawable", getPackageName());
+                        pic.setImageResource(resID);
+                    }
+                }
+        );
 
 //        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
 //        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
