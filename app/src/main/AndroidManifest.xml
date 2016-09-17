@@ -33,6 +33,16 @@
             android:label="Games"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
+        <activity
+            android:name=".Custom_Path"
+            android:label="Custom Path"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
+            android:name=".Choose_Template"
+            android:label="Choose Template"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
     </application>
 
 </manifest>
