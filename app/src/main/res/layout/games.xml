@@ -30,5 +30,13 @@
             android:id="@+id/button7"
             android:layout_gravity="left|bottom" />
 
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/finish"
+            android:id="@+id/button8"
+            android:layout_gravity="center_horizontal|bottom" />
+
     </FrameLayout>
 </LinearLayout>
