@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity
                     public void onClick(View v) {
                         Intent i=new Intent(MainActivity.this, CreateNew.class);
                         startActivity(i);
+                        //go to Choose_Template
                     }
                 }
         );

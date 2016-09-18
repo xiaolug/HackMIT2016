@@ -15,14 +15,18 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import java.util.ArrayList;
 
 /**
  * Created by xiaoluguo on 9/17/16.
  */
 public class Games extends AppCompatActivity{
         //implements NavigationView.OnNavigationItemSelectedListener {
+    static int[] number ={1,5,2,8,11,6,13,9,3,7,10};
+    static String[] suit={"D", "H", "D","C","H","C","S","C","S","D","D"};
     int num=1;
     int resID;
+    static int points=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,6 +36,7 @@ public class Games extends AppCompatActivity{
 
         Button right=(Button) findViewById(R.id.button6);
         Button left=(Button) findViewById(R.id.button7);
+        Button finish=(Button) findViewById(R.id.button8);
 
         final ImageView pic= (ImageView) findViewById(R.id.imageView2);
 
@@ -41,7 +46,6 @@ public class Games extends AppCompatActivity{
                         num=(num+1)%11;
                         String mDrawableName="l"+num;
                         resID=getResources().getIdentifier(mDrawableName, "drawable", getPackageName());
-                        System.out.print("2E STRIKES AGAIN " +resID);
                         pic.setImageResource(resID);
                     }
                 }
@@ -56,6 +60,16 @@ public class Games extends AppCompatActivity{
                     }
                 }
         );
+
+        finish.setOnClickListener(
+                new Button.OnClickListener() {
+                    public void onClick(View v) {
+                        Intent i = new Intent(Games.this, Quiz.class);
+                        startActivity(i);
+                    }
+                }
+        );
+
 
 //        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
 //        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
