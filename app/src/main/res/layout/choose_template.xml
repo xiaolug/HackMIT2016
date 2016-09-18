@@ -24,11 +24,45 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ImageView
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/imgView"
-        android:layout_weight="1" />
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/l1"
+            android:id="@+id/temps"
+            android:layout_gravity="center" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Previous"
+            android:id="@+id/leftTemplate"
+            android:layout_gravity="left|bottom|center" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Next"
+            android:id="@+id/rightTemplate"
+            android:layout_gravity="right|bottom" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Select"
+            android:layout_gravity="center_horizontal|bottom"
+            android:id="@+id/selectTemp" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Save and Exit"
+            android:id="@+id/save"
+            android:layout_gravity="center_horizontal|top" />
+    </FrameLayout>
 
 </LinearLayout>
 </android.support.v4.widget.DrawerLayout>
