@@ -1,4 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:openDrawer="start">
+    <include
+        layout="@layout/app_bar_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <android.support.design.widget.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:fitsSystemWindows="true"
+        app:headerLayout="@layout/nav_header_main"
+        app:menu="@menu/activity_main_drawer" />
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -13,6 +34,7 @@
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Card Number 1"
             android:id="@+id/textView2"
+            android:textColor="#FFFFFF"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true" />
 
@@ -20,7 +42,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Type the number"
+            android:text="Select the number"
             android:id="@+id/textView3"
             android:layout_above="@+id/numberPicker"
             android:layout_centerHorizontal="true" />
@@ -99,5 +121,15 @@
             android:layout_alignRight="@+id/textView3"
             android:layout_alignEnd="@+id/textView3" />
 
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/enter"
+            android:id="@+id/button13"
+            android:layout_above="@+id/textView5"
+            android:layout_toRightOf="@+id/textView2"
+            android:layout_toEndOf="@+id/textView2" />
+
     </RelativeLayout>
 </LinearLayout>
+</android.support.v4.widget.DrawerLayout>

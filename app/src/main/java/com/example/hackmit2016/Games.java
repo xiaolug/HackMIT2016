@@ -20,8 +20,7 @@ import java.util.ArrayList;
 /**
  * Created by xiaoluguo on 9/17/16.
  */
-public class Games extends AppCompatActivity{
-        //implements NavigationView.OnNavigationItemSelectedListener {
+public class Games extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     static int[] number ={1,5,2,8,11,6,13,9,3,7,10};
     static String[] suit={"D", "H", "D","C","H","C","S","C","S","D","D"};
     int num=1;
@@ -43,7 +42,7 @@ public class Games extends AppCompatActivity{
         right.setOnClickListener(
                 new Button.OnClickListener() {
                     public void onClick(View v) {
-                        num=(num+1)%11;
+                        num=num+1;
                         String mDrawableName="l"+num;
                         resID=getResources().getIdentifier(mDrawableName, "drawable", getPackageName());
                         pic.setImageResource(resID);
@@ -53,8 +52,8 @@ public class Games extends AppCompatActivity{
         left.setOnClickListener(
                 new Button.OnClickListener() {
                     public void onClick(View v) {
-                        num=(num-1)%11;
-                        String mDrawableName="l"+num+".jpg";
+                        num=num-1;
+                        String mDrawableName="l"+num;
                         resID=getResources().getIdentifier(mDrawableName, "drawable", getPackageName());
                         pic.setImageResource(resID);
                     }
@@ -71,75 +70,78 @@ public class Games extends AppCompatActivity{
         );
 
 
-//        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-//        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-//                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-//        drawer.setDrawerListener(toggle);
-//        toggle.syncState();
-//
-//        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-//        navigationView.setNavigationItemSelectedListener(this);
-//    }
-//
-//    @Override
-//    public void onBackPressed() {
-//        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-//        if (drawer.isDrawerOpen(GravityCompat.START)) {
-//            drawer.closeDrawer(GravityCompat.START);
-//        } else {
-//            super.onBackPressed();
-//        }
-//    }
-//
-//    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        // Inflate the menu; this adds items to the action bar if it is present.
-//        getMenuInflater().inflate(R.menu.main, menu);
-//        return true;
-//    }
-//
-//    @Override
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//        // Handle action bar item clicks here. The action bar will
-//        // automatically handle clicks on the Home/Up button, so long
-//        // as you specify a parent activity in AndroidManifest.xml.
-//        int id = item.getItemId();
-//
-//        //noinspection SimplifiableIfStatement
-//        if (id == R.id.action_settings) {
-//            return true;
-//        }
-//
-//        return super.onOptionsItemSelected(item);
-//    }
-//
-//    @SuppressWarnings("StatementWithEmptyBody")
-//    @Override
-//    public boolean onNavigationItemSelected(MenuItem item) {
-//        // Handle navigation view item clicks here.
-//        int id = item.getItemId();
-//
-//        if (id == R.id.nav_camera) {
-//            // Handle the camera action
-//        } else if (id == R.id.nav_newpath) {
-//
-//            Intent i=new Intent(this,CreateNew.class);
-//
-//        } else if (id == R.id.nav_mypaths) {
-//
-//            Intent i=new Intent(this, MyPaths.class);
-//
-//        } else if (id == R.id.nav_games) {
-//            Intent i=new Intent(this, Games.class);
-//
-//        } else if (id == R.id.nav_share) {
-//
-//        } else if (id == R.id.nav_send) {
-//
-//        }
-//
-//        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-//        drawer.closeDrawer(GravityCompat.START);
-//        return true;
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer.setDrawerListener(toggle);
+        toggle.syncState();
+
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
+    }
+
+    @Override
+    public void onBackPressed() {
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        if (drawer.isDrawerOpen(GravityCompat.START)) {
+            drawer.closeDrawer(GravityCompat.START);
+        } else {
+            super.onBackPressed();
+        }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_settings) {
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    @SuppressWarnings("StatementWithEmptyBody")
+    @Override
+    public boolean onNavigationItemSelected(MenuItem item) {
+        // Handle navigation view item clicks here.
+        int id = item.getItemId();
+
+        if (id == R.id.nav_camera) {
+            // Handle the camera action
+        } else if (id == R.id.nav_newpath) {
+
+            Intent i=new Intent(this,CreateNew.class);
+            startActivity(i);
+
+        } else if (id == R.id.nav_mypaths) {
+
+            Intent i=new Intent(this, MyPaths.class);
+            startActivity(i);
+
+        } else if (id == R.id.nav_games) {
+            Intent i=new Intent(this, Games.class);
+            startActivity(i);
+
+        } else if (id == R.id.nav_share) {
+
+        } else if (id == R.id.nav_send) {
+
+        }
+
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawer.closeDrawer(GravityCompat.START);
+        return true;
     }
 }
