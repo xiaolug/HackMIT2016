@@ -59,6 +59,36 @@
             android:id="@+id/button8"
             android:layout_gravity="center_horizontal|bottom" />
 
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageView3"
+            android:scaleType="fitCenter"
+            android:adjustViewBounds="true"
+            android:maxHeight="80dp"
+            android:maxWidth="80dp"
+            android:src="@drawable/sr"
+            android:layout_gravity="center" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="51dp"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Game: Memorize 11 cards"
+            android:id="@+id/textView"
+            android:layout_gravity="center_horizontal|top"
+            android:layout_marginTop="75dp" />
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:id="@+id/textView9"
+            android:layout_gravity="center_horizontal|bottom"
+            android:layout_marginBottom="70dp"
+            android:text="East Campus: smore"
+            android:gravity="center_horizontal" />
+
     </FrameLayout>
 </LinearLayout>
 </android.support.v4.widget.DrawerLayout>

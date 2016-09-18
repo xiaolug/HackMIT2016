@@ -34,6 +34,8 @@ public class Quiz extends AppCompatActivity {
     String cardName = "Card Number " + counter;
     Boolean b = true;
     Boolean b1 = true;
+    boolean b2 = false;
+    boolean b3 = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,22 +54,28 @@ public class Quiz extends AppCompatActivity {
                 new Button.OnClickListener() {
                     public void onClick(View v) {
                         if(!b1&&!b){
-                            counter++;
-                            String cardName = "Card Number " + counter;
-                            textview.setText(cardName);
-                            b=true;
-                            b1=true;
-                            suitField.setText("");
-                            numField.setText("");
+                            if(counter==11){
+                                setContentView(R.layout.end);
+                                TextView score= (TextView)findViewById(R.id.textView8);
+                                score.setText(""+Gamept2.points+"!");
+                            }else {
+                                counter++;
+                                String cardName = "Card Number " + counter;
+                                textview.setText(cardName);
+                                b = true;
+                                b1 = true;
+                                suitField.setText("");
+                                numField.setText("");
+                            }
                         }
-                        if(field.getValue()==Games.number[counter]&&b){
-                            Games.points++;
-                            String display="Correct: Points = "+Games.points;
+                        if(field.getValue()==Gamept2.number[counter-1]&&b){
+                            Gamept2.points++;
+                            String display="Correct: Points = "+Gamept2.points;
                             numField.setText(display);
                             b = false;
                         }
                         else if(b){
-                            String display="Wrong: Points =  "+Games.points;
+                            String display="Wrong: Points =  "+Gamept2.points;
                             numField.setText(display);
                             b = false;
                         }
@@ -77,29 +85,36 @@ public class Quiz extends AppCompatActivity {
 
 
         Button diamonds= (Button) findViewById(R.id.button9);
-        Button hearts= (Button) findViewById(R.id.button10);
-        Button spades= (Button) findViewById(R.id.button11);
+        Button spades= (Button) findViewById(R.id.button10);
+        Button hearts= (Button) findViewById(R.id.button11);
         Button clubs= (Button) findViewById(R.id.button12);
 
         diamonds.setOnClickListener(
                 new Button.OnClickListener() {
                     public void onClick(View v) {
                         if(!b&&!b1){
-                            counter++;
-                            String cardName = "Card Number " + counter;
-                            textview.setText(cardName);
-                            b=true;
-                            b1=true;
-                            suitField.setText("");
-                            numField.setText("");
+                            if(counter==11){
+                                System.out.println("counter11");
+                                setContentView(R.layout.end);
+                                TextView score= (TextView)findViewById(R.id.textView8);
+                                score.setText(Gamept2.points);
+                            }else {
+                                counter++;
+                                String cardName = "Card Number " + counter;
+                                textview.setText(cardName);
+                                b = true;
+                                b1 = true;
+                                suitField.setText("");
+                                numField.setText("");
+                            }
                         }
-                        else if(Games.suit[counter].equals("D")&&b1) {
-                            Games.points++;
-                            String display="Correct: Points = "+Games.points;
+                        else if(Gamept2.suit[counter-1].equals("d")&&b1) {
+                            Gamept2.points++;
+                            String display="Correct: Points = "+Gamept2.points;
                             suitField.setText(display);
                             b1 = false;
                         }else if (b1){
-                            String display="Wrong: Points = "+Games.points;
+                            String display="Wrong: Points = "+Gamept2.points;
                             suitField.setText(display);
                             b1 = false;
                         }
@@ -110,20 +125,26 @@ public class Quiz extends AppCompatActivity {
                 new Button.OnClickListener() {
                     public void onClick(View v) {
                         if(!b&&!b1){
-                            counter++;
-                            String cardName = "Card Number " + counter;
-                            textview.setText(cardName);
-                            b=true;
-                            b1=true;
-                            suitField.setText("");
-                            numField.setText("");
-                        } else if(Games.suit[counter].equals("H")&&b1) {
-                           Games.points++;
-                           String display="Correct: Points = "+Games.points;
+                            if(counter==11){
+                                setContentView(R.layout.end);
+                                TextView score= (TextView)findViewById(R.id.textView8);
+                                score.setText(Gamept2.points);
+                            }else {
+                                counter++;
+                                String cardName = "Card Number " + counter;
+                                textview.setText(cardName);
+                                b = true;
+                                b1 = true;
+                                suitField.setText("");
+                                numField.setText("");
+                            }
+                        } else if(Gamept2.suit[counter-1].equals("h")&&b1) {
+                            Gamept2.points++;
+                           String display="Correct: Points = "+Gamept2.points;
                            suitField.setText(display);
                            b1 = false;
                         }else if (b1){
-                           String display="Wrong: Points =  "+Games.points;
+                           String display="Wrong: Points =  "+Gamept2.points;
                            suitField.setText(display);
                            b1 = false;
                        }
@@ -134,20 +155,28 @@ public class Quiz extends AppCompatActivity {
                 new Button.OnClickListener() {
                     public void onClick(View v) {
                         if(!b&&!b1){
-                            counter++;
-                            String cardName = "Card Number " + counter;
-                            textview.setText(cardName);
-                            b=true;
-                            b1=true;
-                            suitField.setText("");
-                            numField.setText("");
-                        }else if(Games.suit[counter].equals("S")&&b1) {
-                            Games.points++;
-                            String display="Correct: Points = "+Games.points;
+                            if(counter==11){
+                                setContentView(R.layout.end);
+                                TextView score= (TextView)findViewById(R.id.textView8);
+                                score.setText(Gamept2.points);
+                            }else {
+                                counter++;
+                                String cardName = "Card Number " + counter;
+                                textview.setText(cardName);
+                                b = true;
+                                b1 = true;
+                                suitField.setText("");
+                                numField.setText("");
+                            }
+
+                        }
+                        if(Gamept2.suit[counter-1].equals("s")&&b1) {
+                            Gamept2.points++;
+                            String display="Correct: Points = "+Gamept2.points;
                             suitField.setText(display);
                             b1 = false;
                         }else if (b1){
-                            String display="Wrong: Points =  "+Games.points;
+                            String display="Wrong: Points =  "+Gamept2.points;
                             suitField.setText(display);
                             b1 = false;
                         }
@@ -158,20 +187,26 @@ public class Quiz extends AppCompatActivity {
                 new Button.OnClickListener() {
                     public void onClick(View v) {
                         if(!b&&!b1){
-                            counter++;
-                            String cardName = "Card Number " + counter;
-                            textview.setText(cardName);
-                            b=true;
-                            b1=true;
-                            suitField.setText("");
-                            numField.setText("");
-                        }else if(Games.suit[counter].equals("C")&&b1) {
-                            Games.points++;
-                            String display="Correct: Points = "+Games.points;
+                            if(counter==11){
+                                setContentView(R.layout.end);
+                                TextView score= (TextView)findViewById(R.id.textView8);
+                                score.setText(Gamept2.points);
+                            }else {
+                                counter++;
+                                String cardName = "Card Number " + counter;
+                                textview.setText(cardName);
+                                b = true;
+                                b1 = true;
+                                suitField.setText("");
+                                numField.setText("");
+                            }
+                        }else if(Gamept2.suit[counter-1].equals("c")&&b1) {
+                            Gamept2.points++;
+                            String display="Correct: Points = "+Gamept2.points;
                             suitField.setText(display);
                             b1 = false;
                         }else if (b1) {
-                            String display = "Wrong: Points =  " + Games.points;
+                            String display = "Wrong: Points =  " + Gamept2.points;
                             suitField.setText(display);
                             b1 = false;
                         }

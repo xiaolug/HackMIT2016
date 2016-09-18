@@ -25,5 +25,26 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Spinner
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:id="@+id/spinner"
+            android:layout_gravity="center_horizontal|top"
+            android:layout_marginTop="100dp"
+            android:entries="@array/MyPaths"
+            android:prompt="@string/prompt"
+            />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/enter"
+            android:id="@+id/button14"
+            android:layout_gravity="center" />
+    </FrameLayout>
 </LinearLayout>
 </android.support.v4.widget.DrawerLayout>

@@ -39,6 +39,11 @@
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
         <activity
+            android:name=".Gamept2"
+            android:label=""
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
             android:name=".Custom_Path"
             android:label="Custom Path"
             android:theme="@style/AppTheme.NoActionBar">

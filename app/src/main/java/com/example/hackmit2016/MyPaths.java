@@ -13,7 +13,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-
+import android.widget.Button;
+import android.widget.Spinner;
 /**
  * Created by xiaoluguo on 9/17/16.
  */
@@ -27,7 +28,18 @@ public class MyPaths extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        Button ent1=(Button) findViewById(R.id.button14);
+        final Spinner spin=(Spinner) findViewById(R.id.spinner);
 
+        ent1.setOnClickListener(
+                new Button.OnClickListener() {
+                    public void onClick(View v) {
+                        if(String.valueOf(spin.getSelectedItem()).equals("MIT"));
+                            setContentView(R.layout.games);
+                        //go to Choose_Template
+                    }
+                }
+        );
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);

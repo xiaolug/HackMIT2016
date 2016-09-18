@@ -9,4 +9,9 @@
     <string name="leftButton"><![CDATA[<-]]></string>
     <string name="finish">Finish</string>
     <string name="enter">Enter</string>
+    <string-array name="MyPaths">
+        <item>Choose Your Path</item>
+        <item>MIT</item>
+    </string-array>
+    <string name="prompt">Choose your path</string>
 </resources>

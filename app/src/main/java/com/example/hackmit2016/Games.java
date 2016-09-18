@@ -15,56 +15,33 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Spinner;
+
 import java.util.ArrayList;
 
 /**
  * Created by xiaoluguo on 9/17/16.
  */
 public class Games extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
-    static int[] number ={1,5,2,8,11,6,13,9,3,7,10};
-    static String[] suit={"D", "H", "D","C","H","C","S","C","S","D","D"};
-    int num=1;
-    int resID;
-    static int points=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.games);
+        setContentView(R.layout.my_paths);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        Button right=(Button) findViewById(R.id.button6);
-        Button left=(Button) findViewById(R.id.button7);
-        Button finish=(Button) findViewById(R.id.button8);
+        Button ent1=(Button) findViewById(R.id.button14);
+        final Spinner spin=(Spinner) findViewById(R.id.spinner);
 
-        final ImageView pic= (ImageView) findViewById(R.id.imageView2);
-
-        right.setOnClickListener(
+        ent1.setOnClickListener(
                 new Button.OnClickListener() {
                     public void onClick(View v) {
-                        num=num+1;
-                        String mDrawableName="l"+num;
-                        resID=getResources().getIdentifier(mDrawableName, "drawable", getPackageName());
-                        pic.setImageResource(resID);
-                    }
-                }
-        );
-        left.setOnClickListener(
-                new Button.OnClickListener() {
-                    public void onClick(View v) {
-                        num=num-1;
-                        String mDrawableName="l"+num;
-                        resID=getResources().getIdentifier(mDrawableName, "drawable", getPackageName());
-                        pic.setImageResource(resID);
-                    }
-                }
-        );
-
-        finish.setOnClickListener(
-                new Button.OnClickListener() {
-                    public void onClick(View v) {
-                        Intent i = new Intent(Games.this, Quiz.class);
-                        startActivity(i);
+                        if(String.valueOf(spin.getSelectedItem()).equals("MIT")) {
+                            System.out.print("WATER");
+                            Intent i = new Intent(Games.this, Gamept2.class);
+                            startActivity(i);
+                        }
+                        //go to Choose_Template
                     }
                 }
         );
