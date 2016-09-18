@@ -1,15 +1,12 @@
 package com.example.hackmit2016;
 
 import android.content.Intent;
-import android.database.Cursor;
-import android.graphics.BitmapFactory;
-import android.net.Uri;
 import android.os.Bundle;
 import android.os.SystemClock;
-import android.provider.MediaStore;
-import android.support.design.widget.NavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 
 /**
@@ -17,8 +14,8 @@ import android.widget.ImageView;
  */
 public class Choose_Template extends AppCompatActivity{
     //implements NavigationView.OnNavigationItemSelectedListener {
-    private static int RESULT_LOAD_IMAGE = 1;
-
+    int num = 1;
+    int resID;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,41 +23,63 @@ public class Choose_Template extends AppCompatActivity{
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        Intent galleryIntent = new Intent(Intent.ACTION_PICK,
-                android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-        // Start the Intent
-        startActivityForResult(galleryIntent, RESULT_LOAD_IMAGE);
+        Button right=(Button) findViewById(R.id.rightTemplate);
+        Button left=(Button) findViewById(R.id.leftTemplate);
+        Button select=(Button) findViewById(R.id.selectTemp);
+        Button save=(Button) findViewById(R.id.save);
+
+        final ImageView pic= (ImageView) findViewById(R.id.temps);
+
+        right.setOnClickListener(
+                new Button.OnClickListener() {
+                    public void onClick(View v) {
+                        num=(num+1)%11;
+                        if (num == 0) { num = 11; }
+                        String mDrawableName="l"+num;
+                        resID=getResources().getIdentifier(mDrawableName, "drawable", getPackageName());
+                        pic.setImageResource(resID);
+                    }
+                }
+        );
+        left.setOnClickListener(
+                new Button.OnClickListener() {
+                    public void onClick(View v) {
+                        num=(num-1)%11;
+                        if (num == 0) { num = 11; }
+                        String mDrawableName="l"+num;
+                        resID=getResources().getIdentifier(mDrawableName, "drawable", getPackageName());
+                        pic.setImageResource(resID);
+                    }
+                }
+        );
+        select.setOnClickListener(
+                new Button.OnClickListener() {
+                    public void onClick(View v) {
+                        //add "Add Photo" button
+                        //let user add photos
+                        //saves each screen
+                        //still allows user to move
+                        //upon moving, de-select
+                    }
+                }
+        );
+        save.setOnClickListener(
+                new Button.OnClickListener() {
+                    public void onClick(View v) {
+                        //saves entire sequence
+                        //what
+
+                        //exits to home page
+                        Intent i = new Intent(Choose_Template.this, CreateNew.class);
+                        startActivity(i);
+                    }
+                }
+        );
+
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        System.out.println("Under construction");
-        try {
-            //from http://programmerguru.com/android-tutorial/how-to-pick-image-from-gallery/
-            if (requestCode == RESULT_LOAD_IMAGE && resultCode == RESULT_OK && null != data) {
-                //Get image from data
-                Uri selectedImage = data.getData();
-                String[] filePathColumn = { MediaStore.Images.Media.DATA };
+    //private void addPhotoButton() {
+    //}
 
-                // Get the cursor
-                Cursor cursor = getContentResolver().query(selectedImage,
-                        filePathColumn, null, null, null);
-                // Move to first row
-                cursor.moveToFirst();
-
-                int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
-                String imgDecodableString = cursor.getString(columnIndex);
-                cursor.close();
-                ImageView imgView = (ImageView) findViewById(R.id.imgView);
-                // Set the Image in ImageView after decoding the String
-                imgView.setImageBitmap(BitmapFactory
-                        .decodeFile(imgDecodableString));
-            } else {
-                System.out.println("You did not choose an image");
-            }
-        } catch (Exception e) {
-            System.out.println("There was an error in choosing your background photo");
-        }
-    }
+    //private ???
 }

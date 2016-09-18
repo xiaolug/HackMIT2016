@@ -44,6 +44,7 @@ public class Games extends AppCompatActivity{
                 new Button.OnClickListener() {
                     public void onClick(View v) {
                         num=(num+1)%11;
+                        if (num == 0) { num = 11; }
                         String mDrawableName="l"+num;
                         resID=getResources().getIdentifier(mDrawableName, "drawable", getPackageName());
                         pic.setImageResource(resID);
@@ -54,7 +55,8 @@ public class Games extends AppCompatActivity{
                 new Button.OnClickListener() {
                     public void onClick(View v) {
                         num=(num-1)%11;
-                        String mDrawableName="l"+num+".jpg";
+                        if (num == 0) { num = 11; }
+                        String mDrawableName="l"+num;
                         resID=getResources().getIdentifier(mDrawableName, "drawable", getPackageName());
                         pic.setImageResource(resID);
                     }
